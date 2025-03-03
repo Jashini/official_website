@@ -1,0 +1,154 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kreative Info Beam</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<section class="contact-head">
+      <header>
+      	  <div class="container">
+              <div class="row">
+                   <div class="col-md-4">
+              			<a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+                   </div>
+                   <div class="col-md-8 text-right menu">
+                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+              			<ul class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="aboutus.html">About</a></li>
+                            <li class="dropdown">
+                              <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Services
+                                <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="services.html">Image Enchancement</a></li>
+                                <li><a href="virtual-staging.html">Virtual Staging</a></li>
+                                <li><a href="video-editing.html">Video Editing</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="contactus.html">Contact Us</a></li>
+                        </ul>
+                   </div>
+              </div>
+          </div>
+      </header>	
+      
+      <p class="head">Support</p>
+          
+    </section>
+	<section class="contact-details">
+       <div class="container">
+       		 <p class="heading color-white">Contact Us</p>
+             <p> <img src="images/border-srt1.png" class="center-block" alt=""></p>
+              <div class="row">
+                   <div class="col-md-4">
+                       <p> <img src="images/map.png" class="center-block" alt=""></p>
+                       <p>Harur,<br> tamil Nadu, india</p>
+                   </div>
+                   <div class="col-md-4">
+                       <p> <img src="images/message.png" class="center-block" alt=""></p>
+                       <p>info@kreativeinfobeam.com</p>
+                   </div>
+                   <div class="col-md-4">
+                       <p> <img src="images/call.png" class="center-block" alt=""></p>
+                       <p>***********</p>
+                   </div>
+              </div>
+       </div>
+    </section>
+    <section class="whatwedo">
+    	<div class="container">
+              <div class="row">
+                   <div class="col-md-12">
+                       <p class="heading color-black">Get In Touch</p>
+                       <p> <img src="images/border-srt.png" class="center-block" alt=""></p>
+                   </div>
+              </div>
+              <div class="row">
+                  <form id="contactform" method="post">
+                   <div class="col-md-6">
+                       <input type="text" name="name" placeholder="Fill Name*" required="">
+                   </div>
+                   <div class="col-md-6">
+                       <input type="email" name="email" placeholder="Email*" required="">
+                   </div>
+                   <div class="col-md-12">
+                       <input type="text" name="subject" placeholder="Subject*" required="">
+                   </div>
+                   <div class="col-md-12">
+                       <textarea cols="" rows="10" placeholder="Message*" name="message" required="">  </textarea>
+                   </div>
+                   <div class="col-md-12 text-right">
+                       <button class="btn btn-default contact-submit" id="submit">Send Message</button>
+                   </div>
+                   </form>
+              </div>
+        </div>
+    </section>
+    
+    
+    <footer>
+    	<div class="container">
+              <div class="row">
+                   <div class="col-md-7">
+                    &copy; Copyright 2017   l   Jashini  l  All Rights Reserved
+                   </div>
+                   <div class="col-md-5 text-right">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
+                        <li><a href="#"><i class="fa fa-google"></i></a></li>
+                  </ul>
+                   </div>
+              </div>
+        </div>
+    </footer>
+    
+
+<script src="js/jquery.min_1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+	$('.carousel').carousel({
+	  interval: 2000
+	})
+</script>
+
+
+<script src="js/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+$('#submit').click(function(){
+$.post("send.php", $("#contactform").serialize(),  function(response) {   
+var myObj = JSON.parse(response);
+if(myObj.msg == "Your email has been received we will get back to you shortly.")
+{
+alert(myObj.msg);
+ $('#contactform').each (function(){
+  this.reset();
+});
+}else{
+alert(myObj.msg);
+}
+});
+return false;
+
+
+});
+
+});
+</script> 
+
+
+
+</body></html>
